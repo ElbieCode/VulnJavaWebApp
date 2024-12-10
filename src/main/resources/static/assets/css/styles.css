@@ -1,0 +1,363 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+.success {
+    color: green;
+    font-size: 0.9em;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding 10px 20px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-left, navbar-right {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-left a:hover, .navbar-right a:hover {
+    background-color: #555;
+}
+
+.login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.login-container input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #555;
+}
+
+.login-container a {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-container a:hover {
+    background-color: #555;
+}
+
+.register-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.register-container label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.register-container input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+    background-color: #555;
+}
+
+.register-container a {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.register-container a:hover {
+    background-color: #555;
+}
+
+.products-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.products-container table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.products-container thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.products-container thead th {
+    padding: 12px;
+    font-size: 16px;
+}
+
+.products-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.products-container tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+.products-container td, th {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.products-container img {
+    width: 100px;
+    height 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.products-container form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-product-btn {
+
+}
+
+.add-product-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.add-product-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.add-product-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #ddd;
+}
+
+.add-product-container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.add-product-container p strong {
+    color: #555;
+}
+
+.add-product-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-product-container form label {
+    font-weight: bold;
+}
+
+.add-product-container form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-product-container form textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.profile-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.profile-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #ddd;
+}
+
+.profile-container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.profile-container p strong {
+    color: #555;
+}
+
+.profile-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-container form label {
+    font-weight: bold;
+}
+
+.profile-container form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button hover {
+    background-color: #45A040;
+}
+
+.cancel-button {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+}
+
+.cancel-button hover {
+    color: #333;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>User Profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
+    </head>
+    <body>
+    <nav th:replace="~{fragment/header :: header}"></nav>
+    <div class="profile-container">
+        <h1>Welcome, <span th:text="${user.username}"></span></h1>
+        <img th:src="@{{imageURL}(imageURL=${user.profileImgURL})}" alt="pic">
+        <p><strong>Full name: </strong> <span th:text="${user.fullName}"></span></p>
+        <p><strong>Email: </strong> <span th:text="${user.email}"></span></p>
+        <p><strong>Address: </strong> <span th:text="${user.address}"></span></p>
+        <a th:href="@{/profile/edit}" class="submit-button">Update Profile</a>
+    </div>
+    </body>
+</html>

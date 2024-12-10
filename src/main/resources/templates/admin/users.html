@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web app</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragment/header-admin :: header}"></nav>
+</header>
+<div class="products-container">
+    <h1>User List</h1>
+    <a th:href="@{/admin/add-user}" class="submit-button">Add User</a>
+    <form action="/admin/users" method="get">
+        <input type="text" name="keyword" placeholder="Search for users...">
+        <button type="submit" class="submit-button">Search</button>
+    </form>
+    <p>Result for: <span th:utext="${result}"></span></p>
+    <table>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Profile Pic</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td >
+                <a th:href="@{/admin/user/{id}(id=${user.id})}" th:text="${user.username}"></a>
+            </td>
+            <td th:text="${user.fullName}"></td>
+            <td th:text="${user.address}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.role}"></td>
+            <td>
+                <img th:src="@{{imageURL}(imageURL=${user.profileImgURL})}">
+            </td>
+            <td>
+                <a th:href="@{/admin/delete-user/{username}(username=${user.username})}"
+                onclick="return confirm('You sure?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

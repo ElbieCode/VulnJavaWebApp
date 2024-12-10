@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web app</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragment/header-admin :: header}"></nav>
+</header>
+<div class="products-container">
+    <h1 th:text="${product.productName}"></h1>
+    <p><strong>Description: </strong> <span th:text="${product.productDescription}"></span></p>
+    <p><strong>Price: </strong> <span th:text="${product.productPrice}"></span></p>
+    <p><strong>Category: </strong> <span th:text="${product.productCategory}"></span></p>
+    <p><strong>Stock: </strong> <span th:text="${product.productStock}"></span></p>
+    <img th:src="@{{imageURL}(imageURL=${product.productImageURL})}" th:alt="${product.productName}">
+    <br>
+    <a th:href="@{/admin/products}">Back</a>
+</div>
+
+</body>
+</html>

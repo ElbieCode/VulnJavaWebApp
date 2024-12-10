@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web app</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragment/header-admin :: header}"></nav>
+</header>
+<div class="products-container">
+    <h1>Product List</h1>
+    <a th:href="@{/admin/add-product}" class="submit-button">Add Product</a>
+    <form action="/admin/products" method="get">
+        <input type="text" name="keyword" placeholder="Search for products...">
+        <button type="submit" class="submit-button">Search</button>
+    </form>
+    <p>Result for: <span th:utext="${result}"></span></p>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Image</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td >
+                <a th:href="@{/admin/product/{id}(id=${product.id})}" th:text="${product.productName}"></a>
+            </td>
+            <td th:text="${product.productDescription}"></td>
+            <td th:text="${product.productPrice}"></td>
+            <td th:text="${product.productCategory}"></td>
+            <td th:text="${product.productStock}"></td>
+            <td>
+                <img th:src="@{{imageURL}(imageURL=${product.productImageURL})}">
+            </td>
+            <td>
+                <a th:href="@{/admin/delete-product/{id}(id=${product.id})}"
+                onclick="return confirm('You sure?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
