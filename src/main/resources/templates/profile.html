@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
     <nav th:replace="~{fragment/header :: header}"></nav>
     <div class="profile-container">
-        <h1>Welcome, <span th:text="${user.username}"></span></h1>
+        <h1>Welcome, <span th:utext="${user.username}"></span></h1>
         <img th:src="@{{imageURL}(imageURL=${user.profileImgURL})}" alt="pic">
         <p><strong>Full name: </strong> <span th:text="${user.fullName}"></span></p>
         <p><strong>Email: </strong> <span th:text="${user.email}"></span></p>

@@ -12,7 +12,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <nav th:replace="~{fragment/header :: header}"></nav>
-        <p th:text="'Hello, ' + ${session.username} + '!'"></p>
+        <p th:utext="'Hello, ' + ${session.username} + '!'"></p>
 
     </body>
 </html>

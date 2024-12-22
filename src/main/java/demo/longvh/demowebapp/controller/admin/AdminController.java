@@ -38,12 +38,12 @@ public class AdminController {
     public String admin(HttpSession session) {
 
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         ;
         return "admin/home";
@@ -53,12 +53,12 @@ public class AdminController {
     public String showProducts(@RequestParam(value = "keyword", required = false)
                                String keyword, Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
         if (keyword != null && !keyword.isEmpty()) {
             model.addAttribute("products", productService.searchProducts(keyword));
             model.addAttribute("result", keyword);
@@ -72,12 +72,12 @@ public class AdminController {
     @GetMapping("/admin/product/{id}")
     public String showProductDetails(@PathVariable("id") int id, Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         Product product = productService.getProductById(id);
         if (product != null) {
@@ -91,12 +91,12 @@ public class AdminController {
     @GetMapping("/admin/delete-product/{id}")
     public String deleteProduct(@PathVariable int id, Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         boolean isDeleted = productService.deleteProduct(id);
         if (isDeleted) {
@@ -110,12 +110,12 @@ public class AdminController {
     @GetMapping("/admin/add-product")
     public String showAddProduct(Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         model.addAttribute("product", new Product());
         return "admin/add-product";
@@ -130,12 +130,12 @@ public class AdminController {
                              @RequestParam("image") MultipartFile img,
                              HttpSession session) throws IOException {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         String uploadDir = "uploads/productImg/";
         Path uploadPath = Paths.get(uploadDir);
@@ -158,12 +158,12 @@ public class AdminController {
     public String showUsers(@RequestParam(value = "keyword", required = false)
                             String keyword, Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
         if (keyword != null && !keyword.isEmpty()) {
             model.addAttribute("users", userService.searchForUser(keyword));
             model.addAttribute("result", keyword);
@@ -177,12 +177,12 @@ public class AdminController {
     @GetMapping("/admin/user/{id}")
     public String showUserDetails(@PathVariable("id") Integer id, Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
         User userDetails = userService.findById(id);
         if (userDetails != null) {
             model.addAttribute("userDetails", userDetails);
@@ -195,12 +195,12 @@ public class AdminController {
     @GetMapping("/admin/delete-user/{username}")
     public String deleteUser(@PathVariable String username, Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         boolean isDeleted = userService.deleteUser(username);
 
@@ -215,12 +215,12 @@ public class AdminController {
     @GetMapping("/admin/add-user")
     public String showAddUser(Model model, HttpSession session) {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         model.addAttribute("user", new User());
         return "admin/add-user";
@@ -236,12 +236,12 @@ public class AdminController {
                           @RequestParam("image") MultipartFile img,
                           HttpSession session) throws IOException {
         User user = (User) session.getAttribute("loggedInUser");
-        if (user == null) {
-            return "redirect:/";
-        }
-        if (!user.getRole().equals("ADMIN")) {
-            return "redirect:/";
-        }
+//        if (user == null) {
+//            return "redirect:/";
+//        }
+//        if (!user.getRole().equals("ADMIN")) {
+//            return "redirect:/";
+//        }
 
         String uploadDir = "uploads/productImg/";
         Path uploadPath = Paths.get(uploadDir);

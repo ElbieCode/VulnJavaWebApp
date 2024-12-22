@@ -62,11 +62,11 @@ public class UserRepository {
 //            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 //            return encoder.matches(password, hashedPass);
 
-//            String sql = "SELECT * FROM users WHERE USERNAME= " + username +
-//                         "AND PASSWORD=" + password;
+            String sql = "SELECT * FROM users WHERE USERNAME= '" + username +
+                         "' AND PASSWORD='" + password +"'";
 
-            String sql = "SELECT * FROM users WHERE USERNAME= ? AND PASSWORD=?";
-            List<User> users = jdbcTemplate.query(sql, new UserRowMapper(),username, password);
+//            String sql = "SELECT * FROM users WHERE USERNAME= ? AND PASSWORD=?";
+            List<User> users = jdbcTemplate.query(sql, new UserRowMapper());
             return !users.isEmpty();
         } catch (Exception e) {
             e.printStackTrace();
